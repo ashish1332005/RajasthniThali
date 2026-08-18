@@ -1,0 +1,298 @@
+/* Hero.css - Ultra-Luxury Responsive Hero Section matching Screenshot 1 */
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  padding-top: calc(var(--nav-height) + 1.5rem);
+  padding-bottom: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--dark-brown);
+  z-index: 2;
+}
+
+.hero-bg-wrapper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hero-bg-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.72) contrast(1.08);
+  transition: opacity 0.5s ease;
+}
+
+.hero-overlay-radial {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 35%, rgba(198, 154, 76, 0.12) 0%, rgba(10, 4, 3, 0.35) 65%, rgba(10, 4, 3, 0.7) 100%);
+  pointer-events: none;
+}
+
+.hero-overlay-dark {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 4, 3, 0.25) 0%, rgba(10, 4, 3, 0.55) 75%, var(--dark-brown) 100%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Hindi Welcome Tagline */
+.hero-welcome-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.4rem;
+}
+
+.hindi-welcome-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  color: var(--brass-gold);
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* Filigree Line Divider */
+.filigree-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  width: 100%;
+  max-width: 200px;
+  margin: 0.4rem 0 0.8rem 0;
+}
+
+.filigree-line {
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, var(--brass-gold), transparent);
+  opacity: 0.8;
+}
+
+.filigree-diamond {
+  font-size: 0.65rem;
+  color: var(--brass-gold);
+  opacity: 0.9;
+}
+
+.title-bottom-filigree {
+  margin: 0.8rem 0 1.2rem 0;
+}
+
+.eyebrow-wrapper {
+  margin-bottom: 0.4rem;
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  letter-spacing: 0.2em;
+  color: var(--soft-gold);
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* Grand Title - Fixing Word Merging Bug */
+.hero-title-grand {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.06em;
+  color: var(--cream);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 0.2rem;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+}
+
+.title-row {
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  letter-spacing: 0.06em;
+}
+
+.line-white {
+  color: #F8F1E5;
+}
+
+.line-gold {
+  color: var(--brass-gold);
+  background: linear-gradient(135deg, var(--soft-gold) 0%, var(--brass-gold) 60%, var(--sand) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+  color: #E6D8C8;
+  max-width: 580px;
+  margin: 0 auto 2rem auto;
+  line-height: 1.6;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Actions */
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2.8rem;
+  width: 100%;
+}
+
+/* Loaded Thali Centerpiece */
+.hero-thali-hero-frame {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto 2.2rem auto;
+}
+
+.hero-filled-thali {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.h-dish {
+  position: absolute;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.75));
+}
+
+.h-plate { inset: 0; width: 100%; height: 100%; }
+.h-dal { top: 20%; left: 50%; width: 28%; height: 28%; transform: translate(-50%, -50%); }
+.h-churma { top: 28%; left: 74%; width: 28%; height: 28%; transform: translate(-50%, -50%); }
+.h-gatte { top: 52%; left: 78%; width: 28%; height: 28%; transform: translate(-50%, -50%); }
+.h-bati { top: 56%; left: 48%; width: 34%; height: 34%; transform: translate(-50%, -50%); }
+.h-kersangri { top: 62%; left: 24%; width: 28%; height: 28%; transform: translate(-50%, -50%); }
+.h-lahsun { top: 38%; left: 22%; width: 26%; height: 26%; transform: translate(-50%, -50%); }
+.h-chaas { top: 22%; left: 30%; width: 26%; height: 26%; transform: translate(-50%, -50%); }
+
+.hero-thali-glow {
+  position: absolute;
+  inset: 10%;
+  background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Scroll To Taste Cue */
+.hero-scroll-taste-cue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--brass-gold);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: opacity var(--transition-fast);
+  margin-top: 0.5rem;
+}
+
+.hero-scroll-taste-cue:hover {
+  opacity: 1;
+}
+
+.vertical-cue-line {
+  width: 1px;
+  height: 25px;
+  background: linear-gradient(180deg, var(--brass-gold), transparent);
+  animation: pulseVertical 2s infinite ease-in-out;
+}
+
+@keyframes pulseVertical {
+  0%, 100% { height: 15px; opacity: 0.4; }
+  50% { height: 30px; opacity: 1; }
+}
+
+.scroll-arrow-down {
+  animation: bounceDown 1.8s infinite ease-in-out;
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+/* Mobile Responsive Optimization matching Screenshot 1 */
+@media (max-width: 768px) {
+  .hero-section {
+    padding-top: calc(var(--nav-height) + 1rem);
+    padding-bottom: 3rem;
+  }
+  .hero-content {
+    align-items: flex-start;
+    text-align: left;
+    padding: 0 1.2rem;
+  }
+  .hero-welcome-box {
+    align-items: flex-start;
+  }
+  .filigree-divider {
+    justify-content: flex-start;
+  }
+  .hero-title-grand {
+    align-items: flex-start;
+    text-align: left;
+    font-size: clamp(2rem, 9vw, 3rem);
+    letter-spacing: 0.04em;
+  }
+  .title-row {
+    letter-spacing: 0.04em;
+  }
+  .hero-description {
+    text-align: left;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 2rem;
+  }
+  .hero-thali-hero-frame {
+    max-width: 320px;
+    margin-bottom: 2rem;
+  }
+  .hero-scroll-taste-cue {
+    width: 100%;
+    align-items: center;
+  }
+}

@@ -1,0 +1,152 @@
+/* Footer.css */
+.footer-section {
+  background: var(--dark-brown);
+  border-top: 1px solid var(--glass-border);
+  padding: 5rem 0 2rem 0;
+  position: relative;
+}
+
+/* Location Card matching Right Screen in Mockup */
+.mock-location-card {
+  background: rgba(22, 10, 7, 0.85);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 2.2rem;
+  max-width: 650px;
+  margin: 0 auto 4rem auto;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+}
+
+.location-card-header {
+  margin-bottom: 1.8rem;
+}
+
+.location-card-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--cream);
+  margin-top: 0.2rem;
+}
+
+.location-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 580px) {
+  .location-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.location-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.loc-item {
+  display: flex;
+  gap: 0.8rem;
+  font-size: 0.85rem;
+}
+
+.loc-item strong {
+  display: block;
+  color: var(--cream);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+
+.loc-item p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.location-map-box {
+  background: linear-gradient(135deg, rgba(84, 22, 16, 0.6), rgba(25, 9, 6, 0.9)), url('https://maps.googleapis.com/maps/api/staticmap?center=26.9124,75.7873&zoom=14&size=400x300&sensor=false');
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border-light);
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.map-pin-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+  margin-bottom: 0.5rem;
+}
+
+.red-pin-icon {
+  color: #E54D42;
+}
+
+.map-label {
+  background: rgba(16, 8, 6, 0.85);
+  border: 1px solid var(--brass-gold);
+  color: var(--soft-gold);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  padding: 3px 10px;
+  border-radius: 10px;
+}
+
+.location-card-action {
+  text-align: center;
+}
+
+.location-sub-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+
+.footer-bottom-bar {
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  padding-top: 1.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.back-to-top-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid var(--glass-border-light);
+  color: var(--soft-gold);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.back-to-top-btn:hover {
+  background: var(--brass-gold);
+  color: var(--dark-brown);
+}

@@ -1,0 +1,403 @@
+/* ScrollThaliAssembly.css - Matching Screenshot 3 & Fixing Scroll Overlap Bug */
+
+.scroll-assembly-track {
+  height: 480vh;
+  position: relative;
+  background-color: #0A0403;
+  background-image: radial-gradient(circle at 50% 35%, #180907 0%, #0A0403 85%);
+  color: var(--cream);
+  z-index: 10;
+}
+
+.scroll-assembly-pinned {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: #0A0403;
+  z-index: 10;
+}
+
+.thali-bg-glow-radial {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(198, 154, 76, 0.15) 0%, rgba(20, 8, 6, 0.08) 60%, transparent 80%);
+  pointer-events: none;
+  filter: blur(50px);
+}
+
+.assembly-main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding-top: calc(var(--nav-height) + 1.2rem);
+  padding-bottom: 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 12;
+}
+
+.assembly-header {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.assembly-eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  color: var(--soft-gold);
+  text-transform: uppercase;
+  display: block;
+}
+
+.assembly-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  color: var(--cream);
+  letter-spacing: 0.05em;
+  margin: 0.1rem 0 0.2rem 0;
+}
+
+.assembly-subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* 3-Column Desktop Grid */
+.assembly-stage-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.2fr 0.9fr;
+  gap: 2rem;
+  align-items: center;
+  width: 100%;
+  flex: 1;
+}
+
+@media (max-width: 900px) {
+  .assembly-stage-grid {
+    grid-template-columns: 1fr;
+  }
+  .journey-left-col, .journey-right-timeline {
+    display: none;
+  }
+}
+
+/* Left Column Styling (Triangle Removed, Filigree Added) */
+.journey-left-col {
+  text-align: left;
+  padding-right: 1rem;
+}
+
+.left-filigree-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 120px;
+  margin-bottom: 1rem;
+}
+
+.f-line {
+  height: 1px;
+  flex: 1;
+  background: var(--brass-gold);
+  opacity: 0.5;
+}
+
+.f-diamond {
+  font-size: 0.6rem;
+  color: var(--brass-gold);
+}
+
+.journey-subhead {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--soft-gold);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.journey-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--cream);
+  line-height: 1.2;
+  margin-bottom: 0.8rem;
+}
+
+.journey-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.journey-scroll-cue {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--brass-gold);
+}
+
+.arrow-down-glow {
+  animation: bounceDown 1.8s infinite ease-in-out;
+}
+
+/* Center Canvas */
+.stage-center-canvas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.stage-3d-thali-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1 / 1;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dish-slot {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+.dish-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.75));
+}
+
+.dish-slot-thali { inset: 0; width: 100%; height: 100%; }
+
+.dish-slot-dal { top: 20%; left: 50%; width: 28%; height: 28%; transform: translate(-50%, -50%); }
+.dish-slot-bati { top: 56%; left: 48%; width: 34%; height: 34%; transform: translate(-50%, -50%); }
+.dish-slot-churma { top: 28%; left: 74%; width: 28%; height: 28%; transform: translate(-50%, -50%); }
+.dish-slot-gatte { top: 52%; left: 78%; width: 28%; height: 28%; transform: translate(-50%, -50%); }
+.dish-slot-kersangri { top: 62%; left: 24%; width: 28%; height: 28%; transform: translate(-50%, -50%); }
+.dish-slot-lahsun { top: 38%; left: 22%; width: 26%; height: 26%; transform: translate(-50%, -50%); }
+.dish-slot-chaas { top: 22%; left: 30%; width: 26%; height: 26%; transform: translate(-50%, -50%); }
+
+/* Right Column Timeline (High Contrast Text) */
+.journey-right-timeline {
+  text-align: left;
+  padding-left: 1rem;
+}
+
+.timeline-tag {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  color: var(--soft-gold);
+  display: block;
+}
+
+.timeline-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--cream);
+  margin-bottom: 1rem;
+}
+
+.timeline-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.timeline-item-row {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  background: rgba(20, 8, 6, 0.75);
+  border: 1px solid rgba(198, 154, 76, 0.25);
+  border-radius: 8px;
+  padding: 0.7rem 0.9rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.timeline-item-row:hover, .timeline-item-row.active {
+  border-color: var(--soft-gold);
+  background: rgba(46, 11, 8, 0.85);
+  transform: translateX(4px);
+}
+
+.item-thumb-micro {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(198, 154, 76, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  flex-shrink: 0;
+}
+
+.item-thumb-micro img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.item-text-info h5 {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  color: var(--soft-gold);
+  font-weight: 700;
+}
+
+.step-num {
+  color: var(--brass-gold);
+  font-weight: 800;
+  margin-right: 4px;
+}
+
+.item-text-info p {
+  font-size: 0.75rem;
+  color: #D9C5B2;
+  line-height: 1.35;
+}
+
+/* Mobile Spotlight & Dots */
+.mobile-spotlight-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (min-width: 901px) {
+  .mobile-spotlight-section {
+    display: none;
+  }
+}
+
+.mobile-step-dots-bar {
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  max-width: 100%;
+  padding-bottom: 4px;
+}
+
+.dot-step-btn {
+  padding: 0.35rem 0.75rem;
+  background: rgba(20, 8, 6, 0.7);
+  border: 1px solid rgba(198, 154, 76, 0.2);
+  color: var(--text-muted);
+  border-radius: 16px;
+  font-size: 0.72rem;
+  font-family: var(--font-display);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.dot-step-btn.active {
+  background: var(--brass-gold);
+  color: var(--dark-brown);
+  font-weight: 700;
+  border-color: var(--brass-gold);
+}
+
+.mobile-spotlight-card {
+  background: rgba(20, 8, 6, 0.95);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  padding: 1.2rem;
+  width: 100%;
+  max-width: 450px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+.m-step-badge {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  color: var(--soft-gold);
+  display: block;
+}
+
+.m-dish-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--cream);
+}
+
+.m-dish-hindi {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  color: var(--brass-gold);
+  display: block;
+}
+
+.m-dish-desc {
+  font-size: 0.78rem;
+  color: #D9C5B2;
+  line-height: 1.4;
+  margin: 0.4rem 0;
+}
+
+.m-dish-tag {
+  font-size: 0.68rem;
+  color: var(--soft-gold);
+  font-family: var(--font-display);
+}
+
+.m-card-img-box {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--glass-border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+}
+
+.m-card-img-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 480px) {
+  .stage-3d-thali-container {
+    max-width: 240px;
+  }
+}

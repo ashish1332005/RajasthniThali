@@ -1,0 +1,384 @@
+/* ThaliExperience.css */
+.thali-section {
+  padding: 7rem 0;
+  position: relative;
+  background: radial-gradient(circle at 50% 30%, #360E0A 0%, var(--dark-brown) 75%);
+  overflow: hidden;
+}
+
+.thali-bg-glow {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 750px;
+  height: 750px;
+  background: radial-gradient(circle, rgba(212, 164, 76, 0.12) 0%, rgba(107, 33, 24, 0.05) 50%, transparent 80%);
+  pointer-events: none;
+  filter: blur(60px);
+}
+
+.thali-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem auto;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+  margin: 0.8rem 0 1.2rem 0;
+  line-height: 1.2;
+}
+
+.highlight-gold {
+  color: var(--brass-gold);
+  background: linear-gradient(135deg, var(--soft-gold) 0%, var(--brass-gold) 60%, var(--sand) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.thali-view-controls {
+  margin-top: 1.8rem;
+}
+
+.view-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1.4rem;
+  background: rgba(212, 164, 76, 0.1);
+  border: 1px solid var(--glass-border-light);
+  color: var(--soft-gold);
+  border-radius: 30px;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.view-toggle-btn:hover {
+  background: var(--brass-gold);
+  color: var(--dark-brown);
+}
+
+.spin-icon {
+  animation: spinSlow 8s linear infinite;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Main Grid Layout */
+.thali-showcase-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3.5rem;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+@media (max-width: 1024px) {
+  .thali-showcase-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Stage Area */
+.thali-visual-stage {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thali-plate-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  transition: all var(--transition-slow);
+}
+
+.base-thali-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.7));
+  transition: transform 0.6s ease;
+}
+
+.thali-plate-wrapper.is-exploded .base-thali-img {
+  transform: scale(0.92);
+  opacity: 0.85;
+}
+
+/* Floating Dishes positioning */
+.floating-dish-item {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 10;
+}
+
+.floating-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 20px rgba(0,0,0,0.6));
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.floating-dish-item:hover .floating-img {
+  transform: scale(1.18) translateY(-6px);
+  filter: drop-shadow(0 18px 28px rgba(212, 164, 76, 0.5));
+}
+
+.dish-pulse-ring {
+  position: absolute;
+  inset: 10%;
+  border-radius: 50%;
+  border: 1px dashed var(--soft-gold);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+.floating-dish-item.is-active .dish-pulse-ring {
+  opacity: 1;
+  transform: scale(1.15);
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { border-color: var(--brass-gold); box-shadow: 0 0 15px var(--gold-glow); }
+  50% { border-color: var(--soft-gold); box-shadow: 0 0 25px var(--gold-glow); }
+}
+
+.dish-floating-badge {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--deep-maroon);
+  border: 1px solid var(--brass-gold);
+  color: var(--cream);
+  font-size: 0.65rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+  white-space: nowrap;
+  font-weight: 600;
+  pointer-events: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+/* Floating positions in exploded mode */
+.is-exploded .dish-pos-bati { top: 5%; left: 35%; }
+.is-exploded .dish-pos-dal { top: 18%; right: 5%; }
+.is-exploded .dish-pos-churma { bottom: 25%; right: 2%; }
+.is-exploded .dish-pos-gatte { bottom: 5%; right: 28%; }
+.is-exploded .dish-pos-kersangri { bottom: 5%; left: 25%; }
+.is-exploded .dish-pos-lahsun { bottom: 25%; left: 2%; }
+.is-exploded .dish-pos-chaas { top: 18%; left: 5%; }
+.is-exploded .dish-pos-papad { top: -4%; right: 28%; }
+
+/* Detail Card Panel */
+.thali-detail-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(16px);
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  position: relative;
+}
+
+.detail-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.detail-tag {
+  background: rgba(212, 164, 76, 0.15);
+  color: var(--soft-gold);
+  border: 1px solid rgba(212, 164, 76, 0.3);
+  font-size: 0.7rem;
+  font-family: var(--font-display);
+  letter-spacing: 0.1em;
+  padding: 4px 12px;
+  border-radius: 4px;
+}
+
+.detail-hindi {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--brass-gold);
+}
+
+.detail-title {
+  font-size: 2.2rem;
+  font-family: var(--font-serif);
+  margin-bottom: 0.8rem;
+  color: var(--cream);
+}
+
+.detail-desc {
+  color: var(--cream);
+  opacity: 0.9;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.detail-origin-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  background: rgba(84, 22, 16, 0.4);
+  border-left: 3px solid var(--brass-gold);
+  padding: 0.8rem 1rem;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 1.8rem;
+}
+
+.origin-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.origin-text {
+  font-size: 0.9rem;
+  color: var(--cream);
+  font-weight: 500;
+}
+
+.detail-specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 1.8rem;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 1.2rem;
+  border-radius: 8px;
+}
+
+.spec-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  font-family: var(--font-display);
+  letter-spacing: 0.05em;
+}
+
+.red-icon { color: #E54D42; }
+.gold-icon { color: var(--brass-gold); }
+
+.spec-bar-wrapper {
+  display: flex;
+  gap: 6px;
+}
+
+.spec-dot {
+  width: 16px;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.1);
+  transition: all 0.3s ease;
+}
+
+.flame-dot.active { background: #E54D42; box-shadow: 0 0 8px rgba(229, 77, 66, 0.6); }
+.ghee-dot.active { background: var(--brass-gold); box-shadow: 0 0 8px var(--gold-glow); }
+
+.detail-recipe-notes h4 {
+  font-size: 0.9rem;
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.detail-recipe-notes p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 1.8rem;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* Thumbnails Strip */
+.thali-thumbnails-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1rem;
+}
+
+.thali-thumb-card {
+  background: rgba(42, 8, 7, 0.6);
+  border: 1px solid rgba(212, 164, 76, 0.15);
+  border-radius: 8px;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.thali-thumb-card:hover, .thali-thumb-card.is-selected {
+  border-color: var(--brass-gold);
+  background: rgba(84, 22, 16, 0.7);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.thumb-img-box {
+  width: 55px;
+  height: 55px;
+  margin-bottom: 0.6rem;
+}
+
+.thumb-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.thumb-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--cream);
+  line-height: 1.2;
+}
+
+.thumb-sub {
+  font-size: 0.68rem;
+  color: var(--brass-gold);
+  margin-top: 2px;
+}

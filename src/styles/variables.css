@@ -1,0 +1,43 @@
+:root {
+  /* Dark Luxury Theme Tokens */
+  --deep-maroon: #0A0403;
+  --maroon: #140806;
+  --royal-red: #2E0B08;
+  --brass-gold: #C69A4C;
+  --soft-gold: #E3C279;
+  --cream: #F5EADB;
+  --sand: #B89255;
+  --dark-brown: #070302;
+  --text-muted: #9E8978;
+  --white: #FFFFFF;
+
+  /* Royal Ivory Cream Theme Tokens (matching Reference Image 1) */
+  --ivory-bg: #F7EFE2;
+  --ivory-surface: #F0E7D8;
+  --ivory-card: #EADECB;
+  --maroon-title: #7A1612;
+  --dark-text: #3B160E;
+  --gold-accent: #9E6D3B;
+  --ivory-muted: #7E6B5A;
+  --ivory-border: rgba(122, 22, 18, 0.18);
+
+  /* Glassmorphism & UI Accents */
+  --glass-bg: rgba(18, 8, 6, 0.88);
+  --glass-border: rgba(198, 154, 76, 0.25);
+  --glass-border-light: rgba(227, 194, 121, 0.35);
+  --gold-glow: rgba(198, 154, 76, 0.45);
+
+  /* Typography Fonts */
+  --font-serif: 'Cormorant Garamond', 'Playfair Display', serif;
+  --font-display: 'Cinzel', serif;
+  --font-body: 'Inter', 'Manrope', sans-serif;
+
+  /* Transitions */
+  --transition-fast: 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-normal: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Spacing & Layout */
+  --container-width: 1350px;
+  --nav-height: 80px;
+}
