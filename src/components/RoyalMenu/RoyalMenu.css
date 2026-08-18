@@ -94,6 +94,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.8rem;
+  perspective: 1000px;
 }
 
 .menu-card-mock {
@@ -103,13 +104,53 @@
   padding: 1.2rem;
   display: flex;
   flex-direction: column;
-  transition: all var(--transition-normal);
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+              border-color 0.4s ease, 
+              box-shadow 0.4s ease;
 }
 
 .menu-card-mock:hover {
-  transform: translateY(-6px);
-  border-color: var(--soft-gold);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(212, 175, 55, 0.6);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 20px rgba(212, 175, 55, 0.15);
+}
+
+.mock-card-header-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.mock-card-hindi {
+  font-size: 0.78rem;
+  color: var(--soft-gold);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.menu-tag-pill {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--brass-gold);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.no-dishes-found {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem 1rem;
+  background: rgba(26, 11, 8, 0.6);
+  border: 1px dashed var(--glass-border-light);
+  border-radius: 14px;
+  color: var(--cream);
+  font-size: 0.95rem;
 }
 
 .mock-card-img-box {
@@ -130,11 +171,11 @@
   max-height: 100%;
   max-width: 100%;
   object-fit: contain;
-  transition: transform 0.4s ease;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .menu-card-mock:hover .mock-card-img-box img {
-  transform: scale(1.1);
+  transform: scale(1.12) rotate(2deg);
 }
 
 .mock-card-content {
@@ -148,7 +189,7 @@
   font-size: 0.95rem;
   letter-spacing: 0.08em;
   color: var(--cream);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.2rem;
 }
 
 .mock-card-desc {
@@ -198,3 +239,4 @@
   color: #000;
   border-color: #22C55E;
 }
+

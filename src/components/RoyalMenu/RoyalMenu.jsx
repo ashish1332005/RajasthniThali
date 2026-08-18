@@ -90,10 +90,60 @@ export default function RoyalMenu() {
   const [searchQuery, setSearchQuery] = useState('');
 
   useGSAP(() => {
-    gsap.fromTo('.menu-card-mock', 
-      { opacity: 0, y: 20 }, 
-      { opacity: 1, y: 0, stagger: 0.08, duration: 0.6, ease: 'power2.out' }
+    // 1. Header reveal on scroll
+    gsap.fromTo('.menu-header', 
+      { opacity: 0, y: 40 }, 
+      {
+        opacity: 1, 
+        y: 0, 
+        duration: 0.9, 
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.menu-header',
+          start: 'top 85%',
+          toggleActions: 'play none none reverse'
+        }
+      }
     );
+
+    // 2. Filter Bar reveal on scroll
+    gsap.fromTo('.menu-filter-bar', 
+      { opacity: 0, y: 30, scale: 0.97 }, 
+      {
+        opacity: 1, 
+        y: 0, 
+        scale: 1,
+        duration: 0.8, 
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.menu-filter-bar',
+          start: 'top 85%',
+          toggleActions: 'play none none reverse'
+        }
+      }
+    );
+
+    // 3. Staggered menu cards reveal one-by-one on scroll
+    const cards = gsap.utils.toArray('.menu-card-mock');
+    if (cards.length > 0) {
+      gsap.fromTo(cards, 
+        { opacity: 0, y: 55, scale: 0.92, rotationX: 8 }, 
+        {
+          opacity: 1, 
+          y: 0, 
+          scale: 1, 
+          rotationX: 0,
+          duration: 0.75, 
+          stagger: 0.12, // Smooth one-by-one sequence
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.menu-grid-mock',
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+    }
   }, { scope: containerRef, dependencies: [activeCategory, searchQuery] });
 
   const filteredItems = MENU_ITEMS.filter((item) => {
@@ -147,29 +197,35 @@ export default function RoyalMenu() {
 
         {/* Dish Cards Grid */}
         <div className="menu-grid-mock">
-          {filteredItems.map((item) => (
-            <div key={item.id} className="menu-card-mock">
-              
-              <div className="mock-card-img-box">
-                <img src={item.image} alt={item.name} />
-              </div>
-
-              <div className="mock-card-content">
-                <div className="mock-card-header-row">
-                  <h3 className="mock-card-title">{item.name.toUpperCase()}</h3>
-                  <span className="mock-card-hindi">{item.hindiName}</span>
+          {filteredItems.length > 0 ? (
+            filteredItems.map((item) => (
+              <div key={item.id} className="menu-card-mock">
+                
+                <div className="mock-card-img-box">
+                  <img src={item.image} alt={item.name} />
                 </div>
 
-                <p className="mock-card-desc">{item.desc}</p>
+                <div className="mock-card-content">
+                  <div className="mock-card-header-row">
+                    <h3 className="mock-card-title">{item.name.toUpperCase()}</h3>
+                    <span className="mock-card-hindi">{item.hindiName}</span>
+                  </div>
 
-                <div className="mock-card-footer">
-                  <span className="mock-card-price">₹{item.price}</span>
-                  {item.isPopular && <span className="menu-tag-pill">POPULAR</span>}
+                  <p className="mock-card-desc">{item.desc}</p>
+
+                  <div className="mock-card-footer">
+                    <span className="mock-card-price">₹{item.price}</span>
+                    {item.isPopular && <span className="menu-tag-pill">POPULAR</span>}
+                  </div>
                 </div>
-              </div>
 
+              </div>
+            ))
+          ) : (
+            <div className="no-dishes-found">
+              <p>No dishes found matching "{searchQuery}". Try selecting another category.</p>
             </div>
-          ))}
+          )}
         </div>
 
       </div>
