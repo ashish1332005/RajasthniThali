@@ -163,12 +163,6 @@ export default function ScrollThaliAssembly() {
       { opacity: 1, scale: 1, x: 0, y: 0, z: 0, xPercent: -50, yPercent: -50, duration: 1, ease: 'back.out(1.2)' }
     );
 
-    // 8. Bikaneri Papad
-    tl.fromTo('.dish-slot-papad',
-      { opacity: 0, scale: 2.2, x: 250, y: 250, z: 500, xPercent: -50, yPercent: -50 },
-      { opacity: 1, scale: 1, x: 0, y: 0, z: 0, xPercent: -50, yPercent: -50, duration: 1, ease: 'back.out(1.2)' }
-    );
-
     // Grand Finale 3D Tilt
     tl.to('.stage-3d-thali-container', {
       rotateX: 14,
