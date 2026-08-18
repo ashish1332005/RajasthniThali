@@ -94,11 +94,12 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.8rem;
-  perspective: 1000px;
+  perspective: 1200px;
+  transform-style: preserve-3d;
 }
 
 .menu-card-mock {
-  background: rgba(22, 10, 7, 0.8);
+  background: rgba(22, 10, 7, 0.85);
   border: 1px solid var(--glass-border);
   border-radius: 14px;
   padding: 1.2rem;
@@ -106,15 +107,13 @@
   flex-direction: column;
   will-change: transform, opacity;
   transform-style: preserve-3d;
-  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
-              border-color 0.4s ease, 
-              box-shadow 0.4s ease;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
 .menu-card-mock:hover {
-  transform: translateY(-8px) scale(1.02);
-  border-color: rgba(212, 175, 55, 0.6);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 20px rgba(212, 175, 55, 0.15);
+  border-color: rgba(212, 175, 55, 0.7);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 25px rgba(212, 175, 55, 0.25);
 }
 
 .mock-card-header-row {
@@ -122,6 +121,8 @@
   flex-direction: column;
   gap: 0.2rem;
   margin-bottom: 0.5rem;
+  transform: translateZ(25px);
+  transform-style: preserve-3d;
 }
 
 .mock-card-hindi {
@@ -140,6 +141,7 @@
   background: rgba(212, 175, 55, 0.15);
   color: var(--brass-gold);
   border: 1px solid rgba(212, 175, 55, 0.3);
+  transform: translateZ(30px);
 }
 
 .no-dishes-found {
@@ -157,31 +159,37 @@
   height: 180px;
   width: 100%;
   border-radius: 10px;
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(212, 175, 55, 0.15);
-  overflow: hidden;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  overflow: visible;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0.8rem;
   margin-bottom: 1rem;
+  transform-style: preserve-3d;
+  transform: translateZ(30px);
 }
 
 .mock-card-img-box img {
   max-height: 100%;
   max-width: 100%;
   object-fit: contain;
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.7));
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), filter 0.5s ease;
+  transform: translateZ(20px);
 }
 
 .menu-card-mock:hover .mock-card-img-box img {
-  transform: scale(1.12) rotate(2deg);
+  transform: translateZ(50px) scale(1.16) rotate(3deg);
+  filter: drop-shadow(0 20px 25px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 15px rgba(212, 175, 55, 0.4));
 }
 
 .mock-card-content {
   display: flex;
   flex-direction: column;
   flex: 1;
+  transform-style: preserve-3d;
 }
 
 .mock-card-title {
@@ -190,6 +198,7 @@
   letter-spacing: 0.08em;
   color: var(--cream);
   margin-bottom: 0.2rem;
+  transform: translateZ(20px);
 }
 
 .mock-card-desc {
@@ -198,6 +207,7 @@
   line-height: 1.5;
   margin-bottom: 1.2rem;
   flex: 1;
+  transform: translateZ(15px);
 }
 
 .mock-card-footer {
@@ -206,6 +216,8 @@
   justify-content: space-between;
   border-top: 1px solid rgba(212, 175, 55, 0.12);
   padding-top: 0.8rem;
+  transform: translateZ(25px);
+  transform-style: preserve-3d;
 }
 
 .mock-card-price {
@@ -213,6 +225,7 @@
   font-size: 1.15rem;
   font-weight: 700;
   color: var(--soft-gold);
+  transform: translateZ(30px);
 }
 
 .mock-add-btn {

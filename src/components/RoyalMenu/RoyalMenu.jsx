@@ -90,13 +90,14 @@ export default function RoyalMenu() {
   const [searchQuery, setSearchQuery] = useState('');
 
   useGSAP(() => {
-    // 1. Header reveal on scroll
+    // 1. Header 3D reveal on scroll
     gsap.fromTo('.menu-header', 
-      { opacity: 0, y: 40 }, 
+      { opacity: 0, y: 50, rotationX: 15, transformPerspective: 1000 }, 
       {
         opacity: 1, 
         y: 0, 
-        duration: 0.9, 
+        rotationX: 0,
+        duration: 1, 
         ease: 'power3.out',
         scrollTrigger: {
           trigger: '.menu-header',
@@ -106,14 +107,15 @@ export default function RoyalMenu() {
       }
     );
 
-    // 2. Filter Bar reveal on scroll
+    // 2. Filter Bar 3D reveal on scroll
     gsap.fromTo('.menu-filter-bar', 
-      { opacity: 0, y: 30, scale: 0.97 }, 
+      { opacity: 0, y: 40, scale: 0.94, rotationX: 15, transformPerspective: 1000 }, 
       {
         opacity: 1, 
         y: 0, 
         scale: 1,
-        duration: 0.8, 
+        rotationX: 0,
+        duration: 0.9, 
         ease: 'power3.out',
         scrollTrigger: {
           trigger: '.menu-filter-bar',
@@ -123,18 +125,26 @@ export default function RoyalMenu() {
       }
     );
 
-    // 3. Staggered menu cards reveal one-by-one on scroll
+    // 3. Staggered 3D Cards entrance one-by-one on scroll
     const cards = gsap.utils.toArray('.menu-card-mock');
     if (cards.length > 0) {
       gsap.fromTo(cards, 
-        { opacity: 0, y: 55, scale: 0.92, rotationX: 8 }, 
+        { 
+          opacity: 0, 
+          y: 90, 
+          scale: 0.82, 
+          rotationX: 35, 
+          rotationY: -15, 
+          transformPerspective: 1200 
+        }, 
         {
           opacity: 1, 
           y: 0, 
           scale: 1, 
           rotationX: 0,
-          duration: 0.75, 
-          stagger: 0.12, // Smooth one-by-one sequence
+          rotationY: 0,
+          duration: 0.95, 
+          stagger: 0.14, // One by one 3D flip-in sequence
           ease: 'power3.out',
           scrollTrigger: {
             trigger: '.menu-grid-mock',
@@ -145,6 +155,39 @@ export default function RoyalMenu() {
       );
     }
   }, { scope: containerRef, dependencies: [activeCategory, searchQuery] });
+
+  // Interactive 3D Mouse Tilt Handlers
+  const handleCardMouseMove = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const rotateX = ((y - centerY) / centerY) * -16;
+    const rotateY = ((x - centerX) / centerX) * 16;
+    
+    gsap.to(card, {
+      rotationX: rotateX,
+      rotationY: rotateY,
+      transformPerspective: 1000,
+      ease: 'power1.out',
+      duration: 0.3,
+      overwrite: 'auto'
+    });
+  };
+
+  const handleCardMouseLeave = (e) => {
+    const card = e.currentTarget;
+    gsap.to(card, {
+      rotationX: 0,
+      rotationY: 0,
+      ease: 'power2.out',
+      duration: 0.6,
+      overwrite: 'auto'
+    });
+  };
 
   const filteredItems = MENU_ITEMS.filter((item) => {
     const matchesCat = activeCategory === 'all' || item.category === activeCategory;
@@ -195,12 +238,16 @@ export default function RoyalMenu() {
           </div>
         </div>
 
-        {/* Dish Cards Grid */}
+        {/* Dish Cards Grid with 3D Motion */}
         <div className="menu-grid-mock">
           {filteredItems.length > 0 ? (
             filteredItems.map((item) => (
-              <div key={item.id} className="menu-card-mock">
-                
+              <div 
+                key={item.id} 
+                className="menu-card-mock"
+                onMouseMove={handleCardMouseMove}
+                onMouseLeave={handleCardMouseLeave}
+              >
                 <div className="mock-card-img-box">
                   <img src={item.image} alt={item.name} />
                 </div>
