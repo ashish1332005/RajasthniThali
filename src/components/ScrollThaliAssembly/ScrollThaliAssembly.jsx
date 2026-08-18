@@ -121,46 +121,52 @@ export default function ScrollThaliAssembly() {
       { opacity: 1, scale: 1, rotateX: 0, z: 0, duration: 1, ease: 'power2.out' }
     );
 
-    // 1. Panchmel Dal (12 o'clock)
+    // 1. Panchmel Dal
     tl.fromTo('.dish-slot-dal',
-      { opacity: 0, scale: 2.2, y: -300, z: 500 },
-      { opacity: 1, scale: 1, y: 0, z: 0, duration: 1, ease: 'back.out(1.2)' }
+      { opacity: 0, scale: 2.2, y: -300, z: 500, xPercent: -50, yPercent: -50 },
+      { opacity: 1, scale: 1, y: 0, z: 0, xPercent: -50, yPercent: -50, duration: 1, ease: 'back.out(1.2)' }
     );
 
-    // 2. Desi Ghee Bati (6 o'clock)
+    // 2. Desi Ghee Bati
     tl.fromTo('.dish-slot-bati',
-      { opacity: 0, scale: 2.5, y: 350, z: 600 },
-      { opacity: 1, scale: 1, y: 0, z: 0, duration: 1.2, ease: 'bounce.out' }
+      { opacity: 0, scale: 2.5, y: 350, z: 600, xPercent: -50, yPercent: -50 },
+      { opacity: 1, scale: 1, y: 0, z: 0, xPercent: -50, yPercent: -50, duration: 1.2, ease: 'bounce.out' }
     );
 
-    // 3. Saffron Churma (2 o'clock)
+    // 3. Saffron Churma
     tl.fromTo('.dish-slot-churma',
-      { opacity: 0, scale: 2.2, x: 300, y: -200, z: 500 },
-      { opacity: 1, scale: 1, x: 0, y: 0, z: 0, duration: 1, ease: 'back.out(1.2)' }
+      { opacity: 0, scale: 2.2, x: 300, y: -200, z: 500, xPercent: -50, yPercent: -50 },
+      { opacity: 1, scale: 1, x: 0, y: 0, z: 0, xPercent: -50, yPercent: -50, duration: 1, ease: 'back.out(1.2)' }
     );
 
-    // 4. Jodhpuri Gatte (4 o'clock)
+    // 4. Jodhpuri Gatte
     tl.fromTo('.dish-slot-gatte',
-      { opacity: 0, scale: 2.2, x: 350, z: 500 },
-      { opacity: 1, scale: 1, x: 0, z: 0, duration: 1, ease: 'back.out(1.2)' }
+      { opacity: 0, scale: 2.2, x: 350, z: 500, xPercent: -50, yPercent: -50 },
+      { opacity: 1, scale: 1, x: 0, z: 0, xPercent: -50, yPercent: -50, duration: 1, ease: 'back.out(1.2)' }
     );
 
-    // 5. Authentic Ker Sangri (7:30)
+    // 5. Authentic Ker Sangri
     tl.fromTo('.dish-slot-kersangri',
-      { opacity: 0, scale: 2.2, x: -300, y: 250, z: 500 },
-      { opacity: 1, scale: 1, x: 0, y: 0, z: 0, duration: 1, ease: 'back.out(1.2)' }
+      { opacity: 0, scale: 2.2, x: -300, y: 250, z: 500, xPercent: -50, yPercent: -50 },
+      { opacity: 1, scale: 1, x: 0, y: 0, z: 0, xPercent: -50, yPercent: -50, duration: 1, ease: 'back.out(1.2)' }
     );
 
-    // 6. Mathania Lahsun Chutney (9 o'clock)
+    // 6. Mathania Lahsun Chutney
     tl.fromTo('.dish-slot-lahsun',
-      { opacity: 0, scale: 2.2, x: -350, z: 500 },
-      { opacity: 1, scale: 1, x: 0, z: 0, duration: 1, ease: 'back.out(1.2)' }
+      { opacity: 0, scale: 2.2, x: -350, z: 500, xPercent: -50, yPercent: -50 },
+      { opacity: 1, scale: 1, x: 0, z: 0, xPercent: -50, yPercent: -50, duration: 1, ease: 'back.out(1.2)' }
     );
 
-    // 7. Kulhad Chaas (10:30)
+    // 7. Kulhad Chaas
     tl.fromTo('.dish-slot-chaas',
-      { opacity: 0, scale: 2.2, x: -250, y: -250, z: 500 },
-      { opacity: 1, scale: 1, x: 0, y: 0, z: 0, duration: 1, ease: 'back.out(1.2)' }
+      { opacity: 0, scale: 2.2, x: -250, y: -250, z: 500, xPercent: -50, yPercent: -50 },
+      { opacity: 1, scale: 1, x: 0, y: 0, z: 0, xPercent: -50, yPercent: -50, duration: 1, ease: 'back.out(1.2)' }
+    );
+
+    // 8. Bikaneri Papad
+    tl.fromTo('.dish-slot-papad',
+      { opacity: 0, scale: 2.2, x: 250, y: 250, z: 500, xPercent: -50, yPercent: -50 },
+      { opacity: 1, scale: 1, x: 0, y: 0, z: 0, xPercent: -50, yPercent: -50, duration: 1, ease: 'back.out(1.2)' }
     );
 
     // Grand Finale 3D Tilt
