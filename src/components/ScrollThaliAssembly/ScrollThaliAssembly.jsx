@@ -268,6 +268,11 @@ export default function ScrollThaliAssembly() {
                   <img src="/images/thali/Chaas.png" alt="Kulhad Mint Chaas" />
                 </div>
 
+                {/* 8. Bikaneri Papad & Khicha */}
+                <div className="dish-slot dish-slot-papad">
+                  <img src="/images/thali/papad.png" alt="Bikaneri Papad & Khicha" />
+                </div>
+
               </div>
             </div>
 

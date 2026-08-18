@@ -48,7 +48,7 @@
   -webkit-text-fill-color: initial !important;
 }
 
-.section-subtitle {
+.story-section .section-subtitle {
   font-size: 1.02rem;
   color: #3B160E !important;
   line-height: 1.65;

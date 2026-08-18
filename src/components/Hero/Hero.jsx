@@ -129,6 +129,7 @@ export default function Hero() {
             <img src="/images/thali/kersangri.png" alt="Ker Sangri" className="h-dish h-kersangri" />
             <img src="/images/thali/Lahsun.png" alt="Lahsun Chutney" className="h-dish h-lahsun" />
             <img src="/images/thali/Chaas.png" alt="Kulhad Mint Chaas" className="h-dish h-chaas" />
+            <img src="/images/thali/papad.png" alt="Bikaneri Papad" className="h-dish h-papad" />
           </div>
           <div className="hero-thali-glow" />
         </div>
