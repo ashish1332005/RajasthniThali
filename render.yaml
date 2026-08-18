@@ -1,0 +1,11 @@
+services:
+  # Static Site configuration (Recommended for Vite/React)
+  - type: web
+    name: rajasthnithali
+    env: static
+    buildCommand: npm run build
+    staticPublishPath: ./dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
