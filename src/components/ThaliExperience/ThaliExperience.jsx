@@ -91,18 +91,6 @@ const THALI_ITEMS = [
     desc: 'Chilled hand-churned yoghurt with roasted cumin, mint leaves, and black salt, served in earthen terracotta kulhad.',
     details: 'Smoked with live charcoal (Dhungar effect) for an authentic rustic woodfire aroma.',
     origin: 'Shekhawati Royal Summer Drinks'
-  },
-  {
-    id: 'papad',
-    name: 'Bikaneri Papad & Khicha',
-    hindiName: 'बीकानेरी पापड़ एवं खींचा',
-    image: '/images/thali/papad.png',
-    spiceLevel: 2,
-    gheeLevel: 1,
-    tag: 'Crispy Urad & Rice Cracker',
-    desc: 'Sun-dried lentil papad roasted over open flame paired with steamed rice-flour khicha drizzled with ghee.',
-    details: 'Made with Bikaner ground water, famous nationwide for unmatched crispness and pepper crunch.',
-    origin: 'Bikaner Heritage Crafts'
   }
 ];
 
