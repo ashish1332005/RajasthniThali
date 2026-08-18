@@ -4,6 +4,7 @@
   position: relative;
   background: var(--dark-brown);
   border-top: 1px solid var(--glass-border);
+  scroll-margin-top: calc(var(--nav-height) + 1rem);
 }
 
 .menu-header {
